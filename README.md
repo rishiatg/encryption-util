@@ -9,21 +9,24 @@ This library is for encryting or decryption the particular field of any class ba
 
 
 
-@CryptoKeys(secretKey= "RishiShrivastava",initialVector = "1023451141141110")
-public class YourClassName {
 
-	@Crypto
-	private String name;
 
-    public String getName() {
-      return name;
-    }
 
-    public void setName(String name) {
-      this.name = name;
-    }
-  
-  }
+	@CryptoKeys(secretKey= "RishiShrivastava",initialVector = "1023451141141110")
+	public class YourClassName {
+
+	    @Crypto
+	    private String name;
+
+	    public String getName() {
+	      return name;
+	    }
+
+	    public void setName(String name) {
+	      this.name = name;
+	    }
+
+	  }
   
   
   If you want to encryt your bean then just call the method with the parameter.
