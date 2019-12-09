@@ -28,7 +28,7 @@ public class YourClassName {
   
   If you want to encryt your bean then just call the method with the parameter.
   
-      			YourClass yourclass = new YourClass();
+      		YourClass yourclass = new YourClass();
 			yourclass.setName("Rishi");
 			Cryptography.crypt(yourclass, CryptoType.ENCRYPT);
       
