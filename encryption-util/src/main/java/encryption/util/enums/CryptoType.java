@@ -7,5 +7,15 @@ package encryption.util.enums;
  */
 public enum CryptoType {
 
-	ENCRYPT,DECRYPT;
+	ENCRYPT("encrypt"),DECRYPT("decrypt");
+	
+	String value;
+	
+	CryptoType(String value){
+		this.value  = value;
+	}
+	
+	public String value() {
+		return this.value;
+	}
 }

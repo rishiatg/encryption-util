@@ -40,21 +40,20 @@ public interface Cryptography {
 				try {
 					pd = new PropertyDescriptor(field.getName(),cls);
 					Object value = pd.getReadMethod().invoke(object);
-					if (type.equals(CryptoType.ENCRYPT)) {
-						Method encryptMehtod = CryptoGraphyUtil.class.getDeclaredMethod("encrypt", String.class);
-						encryptMehtod.setAccessible(true);
-						value = encryptMehtod.invoke(null,value.toString());
-					}else if(type.equals(CryptoType.DECRYPT)) {
-						Method decryptMehtod = CryptoGraphyUtil.class.getDeclaredMethod("decrypt", String.class);
-						decryptMehtod.setAccessible(true);
-						value = decryptMehtod.invoke(null,value.toString());
-					}
+					value = getCryptedValue(value,type);
 					pd.getWriteMethod().invoke(object, value);
 				} catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException  | NoSuchMethodException | SecurityException e) {
-					e.printStackTrace();
 					throw new EncryptionException(e.getMessage()); 
 				}
 			}
 		}
+	}
+
+	public static Object getCryptedValue(Object value, CryptoType cryptoType)
+			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+		Method encryptMehtod = CryptoGraphyUtil.class.getDeclaredMethod(cryptoType.value(), String.class);
+		encryptMehtod.setAccessible(true);
+		value = encryptMehtod.invoke(null,value.toString());
+		return value;
 	}
 }
