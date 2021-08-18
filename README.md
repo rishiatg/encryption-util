@@ -5,7 +5,7 @@ This library is for encryting or decryption the particular field of any class ba
 
 @Crypto :- Use this anootation at the field of the bean if you want that field to be encrypted.
 
-@CryptoKeys :-  Use this annotation to define your own secret key and initail vecotr to be used in encryptin or decryption.
+@CryptoKeys :-  Use this annotation to define your own secret key and initail vector to be used in encryption or decryption.
 
 
 
